@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+PASSWORD_HASHERS = (
+'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATICFILES_DIRS = [STATIC_DIR, ]
@@ -126,6 +130,6 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
 
 
-
+LOGIN_URL = 'rango:login'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
